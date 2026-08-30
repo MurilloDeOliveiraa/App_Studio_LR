@@ -8,10 +8,11 @@
     "start": "wrangler dev",
     "test": "vitest",
     "cf-typegen": "wrangler types",
-    "apply-migration-locally": "npx wrangler d1 migrations apply studio_db --local",
-    "send-migration-to-remote": "npx wrangler d1 migrations apply studio_db --remote",
+    "apply-migrations-locally": "npx wrangler d1 migrations apply studio_db --local",
+    "send-migrations-to-remote": "npx wrangler d1 migrations apply studio_db --remote",
     "export_remote_db": "npx wrangler d1 export studio_db --remote --output=schema.sql",
-    "import_to_local_db": "npx wrangler d1 execute studio_db --local --file=schema.sql"
+    "import_to_local_db": "npx wrangler d1 execute studio_db --local --file=schema.sql",
+    "delete_specific_migration": "npx wrangler d1 execute studio_db --local --command \"DELETE FROM d1_migrations WHERE name='NOME_DO_ARQUIVO.sql'\""
   },
   "devDependencies": {
     "@cloudflare/vitest-plugin": "^1.0.0",

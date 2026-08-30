@@ -1,8 +1,9 @@
--- Migration number: 0001 	 2026-08-30T23:03:01.036Z
 DROP TABLE IF EXISTS Procedimentos;
 CREATE TABLE Procedimentos(
     Id INTEGER PRIMARY KEY AUTOINCREMENT,
     Nome TEXT NOT NULL,
+    CategoriaId INTEGER,
     DescricaoCurta TEXT,
-    DuracaoEmMinutos INTEGER
+    DuracaoEmMinutos INTEGER,
+    FOREIGN KEY (CategoriaId) REFERENCES Categorias(Id)
 );
