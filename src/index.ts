@@ -26,6 +26,28 @@ export default {
 			});
 		}
 
+		if (url.pathname === "/clientes") {
+			// If you did not use `DB` as your binding name, change it here
+			const { results } = await env.db_binding.prepare(
+				"SELECT * FROM Clientes"
+			)
+				.all();
+			return new Response(JSON.stringify(results), {
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+
+		if (url.pathname === "/procedimentos") {
+			// If you did not use `DB` as your binding name, change it here
+			const { results } = await env.db_binding.prepare(
+				"SELECT * FROM Procedimentos"
+			)
+				.all();
+			return new Response(JSON.stringify(results), {
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+
 		if (url.pathname === "/api/hello") {
 			return Response.json({
 				message: "Olá do Cloudflare Worker!",

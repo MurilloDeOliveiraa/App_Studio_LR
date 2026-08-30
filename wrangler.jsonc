@@ -8,7 +8,8 @@
 	"main": "src/index.ts",
 	"compatibility_date": "2026-08-25",
 	"observability": {
-		"enabled": true
+		"enabled": true,
+		"redact_query_string": false
 	},
 	"upload_source_maps": true,
 	// ... resto da config
@@ -46,7 +47,14 @@
 	"assets": {
 		"directory": "./src/assets",
 		"binding": "ASSETS"
-	}
+	},
+	"d1_databases": [
+		{
+			"binding": "db_binding",
+			"database_name": "studio_db",
+			"database_id": "9a7cfa30-189f-4573-aa1b-47e456b83ee8"
+		}
+	]
 	/**
 	 * Service Bindings (communicate between multiple Workers)
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
