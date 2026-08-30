@@ -10,9 +10,31 @@
  *
  * Learn more at https://developers.cloudflare.com/workers/
  */
+import homeHtml from "./pages/home.html";
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
-		return new Response("Hello World!");
+		const url = new URL(request.url);
+
+		if (url.pathname.startsWith("/assets/")) {
+			return env.ASSETS.fetch(request);
+		}
+
+		if (url.pathname === "/") {
+			return new Response(homeHtml, {
+				headers: { "content-type": "text/html; charset=utf-8" },
+			});
+		}
+
+		if (url.pathname === "/api/hello") {
+			return Response.json({
+				message: "Olá do Cloudflare Worker!",
+				status: "online"
+			});
+		}
+
+		return new Response("Página não encontrada", {
+			status: 404
+		});
 	},
 } satisfies ExportedHandler<Env>;
