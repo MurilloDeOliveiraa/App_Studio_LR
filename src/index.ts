@@ -11,10 +11,56 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 import homeHtml from "./pages/home.html";
+import estetica from "./pages/estetica.html";
+import nailDesign from "./pages/nail-design.html";
+import lashDesign from "./pages/lash-design.html";
+import sobrancelhas from "./pages/sobrancelhas.html";
+import agendar from "./pages/agendar.html";
+import privacidade from "./pages/privacidade.html";
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
 		const url = new URL(request.url);
+
+		// ---- API: salvar agendamento no D1 ----
+		if (url.pathname === "/api/agendamento" && request.method === "POST") {
+			try {
+				const body = await request.json<{ nome?: string; celular?: string; consentimento?: boolean }>();
+				const nome = (body.nome ?? "").trim();
+				const celular = (body.celular ?? "").trim();
+				const consentimento = body.consentimento === true;
+
+				if (!nome || nome.length < 2 || !celular || celular.replace(/\D/g, "").length < 10) {
+					return new Response(JSON.stringify({ ok: false, error: "Dados inválidos" }), {
+						status: 400,
+						headers: { "content-type": "application/json; charset=utf-8" },
+					});
+				}
+
+				if (!consentimento) {
+					return new Response(JSON.stringify({ ok: false, error: "Consentimento não informado" }), {
+						status: 400,
+						headers: { "content-type": "application/json; charset=utf-8" },
+					});
+				}
+
+				await env.db_binding.prepare(
+					"INSERT INTO Leads (nome, celular, consentimento, consentido_em) VALUES (?, ?, 1, ?)"
+				)
+					.bind(nome, celular, consentimento, new Date().toISOString())
+					.run();
+
+				return new Response(JSON.stringify({ ok: true }), {
+					status: 201,
+					headers: { "content-type": "application/json; charset=utf-8" },
+				});
+			} catch (err) {
+				return new Response(JSON.stringify({ ok: false, error: "Erro ao salvar" }), {
+					status: 500,
+					headers: { "content-type": "application/json; charset=utf-8" },
+				});
+			}
+		}
 
 		if (url.pathname.startsWith("/assets/")) {
 			return env.ASSETS.fetch(request);
@@ -26,33 +72,23 @@ export default {
 			});
 		}
 
-		if (url.pathname === "/clientes") {
-			// If you did not use `DB` as your binding name, change it here
-			const { results } = await env.db_binding.prepare(
-				"SELECT * FROM Clientes"
-			)
-				.all();
-			return new Response(JSON.stringify(results), {
-				headers: { 'Content-Type': 'application/json' }
-			});
+		if (url.pathname === "/estetica") {
+			return new Response(estetica, { headers: { "content-type": "text/html; charset=utf-8" } });
 		}
-
-		if (url.pathname === "/procedimentos") {
-			// If you did not use `DB` as your binding name, change it here
-			const { results } = await env.db_binding.prepare(
-				"SELECT * FROM Procedimentos"
-			)
-				.all();
-			return new Response(JSON.stringify(results), {
-				headers: { 'Content-Type': 'application/json' }
-			});
+		if (url.pathname === "/nail-design") {
+			return new Response(nailDesign, { headers: { "content-type": "text/html; charset=utf-8" } });
 		}
-
-		if (url.pathname === "/api/hello") {
-			return Response.json({
-				message: "Olá do Cloudflare Worker!",
-				status: "online"
-			});
+		if (url.pathname === "/lash-design") {
+			return new Response(lashDesign, { headers: { "content-type": "text/html; charset=utf-8" } });
+		}
+		if (url.pathname === "/sobrancelhas") {
+			return new Response(sobrancelhas, { headers: { "content-type": "text/html; charset=utf-8" } });
+		}
+		if (url.pathname === "/agendar") {
+			return new Response(agendar, { headers: { "content-type": "text/html; charset=utf-8" } });
+		}
+		if (url.pathname === "/privacidade") {
+			return new Response(privacidade, { headers: { "content-type": "text/html; charset=utf-8" } });
 		}
 
 		return new Response("Página não encontrada", {

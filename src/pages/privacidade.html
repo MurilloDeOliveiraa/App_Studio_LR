@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade | Studio Laryssa Rodrigues</title>
+    <meta name="description"
+        content="Política de Privacidade do Studio Laryssa Rodrigues — como tratamos seus dados pessoais.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Tangerine:wght@700&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --taupe: #a89a80;
+            --taupe-dark: #97896f;
+            --mauve: #8c7a70;
+            --mauve-dark: #7a6a61;
+            --gold-1: #f1dcae;
+            --gold-2: #cda86a;
+            --gold-3: #a9814a;
+            --cream: #f6efdf;
+            --ink: #362d24;
+            --line: rgba(246, 239, 223, 0.28);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--taupe);
+            color: var(--cream);
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        .script {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin: 0;
+        }
+
+        .gold-text {
+            background: var(--gold-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* ---- NAV ---- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(140, 122, 112, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        nav.wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 14px;
+            padding-bottom: 14px;
+        }
+
+        .brandmark {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .navlinks a {
+            opacity: 0.85;
+            transition: opacity .25s ease, color .25s ease;
+            padding-bottom: 4px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .navlinks a:hover {
+            opacity: 1;
+            border-color: var(--gold-2);
+        }
+
+        .navtoggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--cream);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 760px) {
+            .navlinks {
+                position: fixed;
+                inset: 62px 0 auto 0;
+                flex-direction: column;
+                gap: 0;
+                background: var(--mauve-dark);
+                padding: 8px 28px 20px;
+                transform: translateY(-120%);
+                transition: transform .3s ease;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .navlinks.open {
+                transform: translateY(0);
+            }
+
+            .navlinks li {
+                padding: 12px 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .navtoggle {
+                display: block;
+            }
+        }
+
+        /* ---- LEGAL CONTENT ---- */
+        .legal-hero {
+            position: relative;
+            padding: 64px 0 32px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .legal-hero::before {
+            content: "";
+            position: absolute;
+            inset: -20% -10% auto -10%;
+            height: 140%;
+            background: radial-gradient(60% 55% at 50% 20%, rgba(241, 220, 174, 0.16), transparent 70%);
+            pointer-events: none;
+        }
+
+        .legal-hero .eyebrow {
+            font-size: 0.78rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold-1);
+            opacity: 0.9;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .legal-hero h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+        }
+
+        .legal-hero p.updated {
+            margin-top: 14px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .legal-content {
+            padding: 20px 0 96px;
+        }
+
+        .legal-card {
+            max-width: 760px;
+            margin: 0 auto;
+            background: rgba(246, 239, 223, 0.06);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 46px 42px;
+        }
+
+        @media (max-width: 600px) {
+            .legal-card {
+                padding: 34px 24px;
+            }
+        }
+
+        .legal-card h2 {
+            font-size: 1.4rem;
+            margin-top: 34px;
+            margin-bottom: 14px;
+        }
+
+        .legal-card h2:first-child {
+            margin-top: 0;
+        }
+
+        .legal-card p,
+        .legal-card li {
+            font-size: 0.94rem;
+            line-height: 1.75;
+            opacity: 0.9;
+        }
+
+        .legal-card ul {
+            margin: 0 0 14px;
+            padding-left: 22px;
+        }
+
+        .legal-card li {
+            margin-bottom: 8px;
+        }
+
+        .legal-card a {
+            color: var(--gold-1);
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.82rem;
+            letter-spacing: 0.06em;
+            opacity: 0.8;
+            transition: opacity .25s ease;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+            color: var(--gold-1);
+        }
+
+        footer.simple {
+            text-align: center;
+            padding: 0 0 40px;
+        }
+
+        .foot-fine {
+            font-size: 0.75rem;
+            opacity: 0.55;
+            letter-spacing: 0.04em;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="wrap">
+            <div class="brandmark">
+                <a class="brandmark" href="/" aria-label="Ir para a página inicial">
+                    <img class="brand-logo" src="/logo.png" alt="Logo Studio Laryssa Rodrigues" width="150"
+                        height="150">
+                </a>
+            </div>
+            <button class="navtoggle" aria-label="Abrir menu"
+                onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+            <ul class="navlinks" id="navlinks">
+                <li><a href="/estetica">Estética</a></li>
+                <li><a href="/nail-design">Nail Design</a></li>
+                <li><a href="/lash-design">Lash Design</a></li>
+                <li><a href="/sobrancelhas">Sobrancelhas</a></li>
+                <li><a href="/#localizacao">Localização</a></li>
+                <li><a href="/#contatos">Contatos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="legal-hero">
+            <div class="wrap">
+                <h1 class="gold-text">Política de Privacidade</h1>
+                <p class="updated">Última atualização: setembro de 2026</p>
+            </div>
+        </section>
+
+        <section class="legal-content">
+            <div class="wrap">
+                <div class="legal-card">
+                    <h2 class="gold-text">1. Quem somos</h2>
+                    <p>
+                        Esta política explica como o <strong>Studio Laryssa Rodrigues</strong>, localizado na
+                        Rua Nunes Machado 472 - Sala 1805, Rebouças, Curitiba/PR, coleta, usa e protege os dados
+                        pessoais de quem utiliza este site, em conformidade com a Lei Geral de Proteção de Dados
+                        (Lei nº 13.709/2018 — LGPD).
+                    </p>
+
+                    <h2 class="gold-text">2. Quais dados coletamos</h2>
+                    <p>Ao usar o formulário de agendamento, coletamos:</p>
+                    <ul>
+                        <li>Nome completo</li>
+                        <li>Número de celular / WhatsApp</li>
+                    </ul>
+                    <p>Não coletamos nenhum outro dado pessoal através deste site.</p>
+
+                    <h2 class="gold-text">3. Para que usamos seus dados</h2>
+                    <p>Os dados informados são usados exclusivamente para:</p>
+                    <ul>
+                        <li>Entrar em contato com você pelo WhatsApp para confirmar o horário do agendamento</li>
+                        <li>Organizar a agenda de atendimentos do studio</li>
+                    </ul>
+                    <p>Não usamos seus dados para envio de propaganda, não os vendemos e não os compartilhamos
+                        com terceiros para fins comerciais.</p>
+
+                    <h2 class="gold-text">4. Base legal</h2>
+                    <p>
+                        O tratamento dos seus dados é feito com base no seu <strong>consentimento</strong>,
+                        fornecido ao marcar a caixa de aceite no formulário de agendamento, e também se apoia na
+                        necessidade de execução de procedimentos preliminares relacionados ao serviço solicitado.
+                    </p>
+
+                    <h2 class="gold-text">5. Por quanto tempo guardamos seus dados</h2>
+                    <p>
+                        Mantemos os dados de agendamento pelo tempo necessário para a prestação do serviço e
+                        organização da agenda, podendo ser conservados por até 24 meses após o último contato,
+                        salvo se você solicitar a exclusão antes desse prazo.
+                    </p>
+
+                    <h2 class="gold-text">6. Como protegemos seus dados</h2>
+                    <p>
+                        Os dados são armazenados em infraestrutura da Cloudflare, com acesso restrito à equipe
+                        responsável pelo studio. Adotamos medidas técnicas razoáveis para evitar acessos não
+                        autorizados, perda ou vazamento de informações.
+                    </p>
+
+                    <h2 class="gold-text">7. Seus direitos</h2>
+                    <p>De acordo com a LGPD, você pode, a qualquer momento, solicitar:</p>
+                    <ul>
+                        <li>Confirmação de que tratamos seus dados</li>
+                        <li>Acesso aos dados que temos sobre você</li>
+                        <li>Correção de dados incompletos ou desatualizados</li>
+                        <li>Exclusão dos seus dados de nossa base</li>
+                        <li>Revogação do seu consentimento</li>
+                    </ul>
+                    <p>
+                        Para exercer qualquer um desses direitos, entre em contato pelo
+                        <a href="https://wa.me/5541998463446" target="_blank" rel="noopener">WhatsApp</a>
+                        ou pelo <a href="https://instagram.com/_laryssa_rodriguess" target="_blank"
+                            rel="noopener">Instagram</a> do studio. Responderemos sua solicitação em prazo
+                        razoável.
+                    </p>
+
+                    <h2 class="gold-text">8. Alterações desta política</h2>
+                    <p>
+                        Esta política pode ser atualizada periodicamente. Recomendamos revisitar esta página de
+                        tempos em tempos para se manter informado sobre como cuidamos dos seus dados.
+                    </p>
+
+                    <a href="/" class="back-link">← Voltar para o início</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="simple">
+            <p class="foot-fine">© <span id="year"></span> Studio Laryssa Rodrigues — Bem-estar e Cuidado</p>
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.querySelectorAll('.navlinks a').forEach(a => {
+            a.addEventListener('click', () => document.getElementById('navlinks').classList.remove('open'));
+        });
+    </script>
+</body>
+
+</html>

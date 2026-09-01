@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Horário | Studio Laryssa Rodrigues</title>
+    <meta name="description"
+        content="Agende seu horário no Studio Laryssa Rodrigues — Estética, Nail Design, Lash Design e Sobrancelhas em Rebouças, Curitiba.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Tangerine:wght@700&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --taupe: #a89a80;
+            --taupe-dark: #97896f;
+            --mauve: #8c7a70;
+            --mauve-dark: #7a6a61;
+            --gold-1: #f1dcae;
+            --gold-2: #cda86a;
+            --gold-3: #a9814a;
+            --cream: #f6efdf;
+            --ink: #362d24;
+            --line: rgba(246, 239, 223, 0.28);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--taupe);
+            color: var(--cream);
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        .script {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin: 0;
+        }
+
+        .gold-text {
+            background: linear-gradient(120deg, var(--gold-3), var(--gold-1) 5%, var(--gold-2) 85%, var(--gold-1));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* ---- NAV ---- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(140, 122, 112, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        nav.wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 14px;
+            padding-bottom: 14px;
+        }
+
+        .brandmark {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            letter-spacing: 0.06em;
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .navlinks a {
+            opacity: 0.85;
+            transition: opacity .25s ease, color .25s ease;
+            padding-bottom: 4px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .navlinks a:hover {
+            opacity: 1;
+            border-color: var(--gold-2);
+        }
+
+        .navtoggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--cream);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 760px) {
+            .navlinks {
+                position: fixed;
+                inset: 62px 0 auto 0;
+                flex-direction: column;
+                gap: 0;
+                background: var(--mauve-dark);
+                padding: 8px 28px 20px;
+                transform: translateY(-120%);
+                transition: transform .3s ease;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .navlinks.open {
+                transform: translateY(0);
+            }
+
+            .navlinks li {
+                padding: 12px 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .navtoggle {
+                display: block;
+            }
+        }
+
+        /* ---- BOOKING SECTION ---- */
+        .booking-hero {
+            position: relative;
+            padding: 72px 0 96px;
+            overflow: hidden;
+        }
+
+        .booking-hero::before {
+            content: "";
+            position: absolute;
+            inset: -20% -10% auto -10%;
+            height: 140%;
+            background: radial-gradient(60% 55% at 50% 20%, rgba(241, 220, 174, 0.16), transparent 70%);
+            pointer-events: none;
+        }
+
+        .booking-wrap {
+            max-width: 480px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 22px;
+        }
+
+        .badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.25));
+        }
+
+        .booking-head {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .eyebrow {
+            font-size: 0.78rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold-1);
+            opacity: 0.9;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .booking-head h1 {
+            font-size: clamp(2rem, 6vw, 2.7rem);
+        }
+
+        .booking-head p {
+            margin-top: 14px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            opacity: 0.88;
+        }
+
+        .booking-card {
+            background: rgba(246, 239, 223, 0.06);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 40px 34px;
+        }
+
+        .field {
+            margin-bottom: 22px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold-1);
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            background: rgba(246, 239, 223, 0.08);
+            color: var(--cream);
+            font-family: 'Jost', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            outline: none;
+            transition: border-color .25s ease, background .25s ease;
+        }
+
+        .field input::placeholder {
+            color: rgba(246, 239, 223, 0.45);
+        }
+
+        .field input:focus {
+            border-color: var(--gold-2);
+            background: rgba(246, 239, 223, 0.12);
+        }
+
+        .field-error {
+            display: none;
+            margin-top: 8px;
+            font-size: 0.78rem;
+            color: #f1c4c4;
+        }
+
+        .field.invalid input {
+            border-color: #c98787;
+        }
+
+        .field.invalid .field-error,
+        .consent-field.invalid .field-error {
+            display: block;
+        }
+
+        .consent-field {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 26px;
+        }
+
+        .consent-field .field-error {
+            width: 100%;
+            padding-left: 26px;
+        }
+
+        .consent-field input[type="checkbox"] {
+            margin-top: 3px;
+            width: 16px;
+            height: 16px;
+            accent-color: var(--gold-2);
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .consent-field label {
+            font-size: 0.82rem;
+            line-height: 1.55;
+            opacity: 0.9;
+            cursor: pointer;
+        }
+
+        .consent-field label a {
+            color: var(--gold-1);
+            text-decoration: underline;
+        }
+
+        .consent-field.invalid label {
+            color: #f1c4c4;
+        }
+
+        .consent-field .field-error {
+            margin-top: 6px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 999px;
+            font-family: 'Jost', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, var(--gold-3), var(--gold-1));
+            color: #3a2c17;
+            font-weight: 500;
+            box-shadow: 0 10px 24px rgba(169, 129, 74, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 26px;
+            font-size: 0.82rem;
+            letter-spacing: 0.06em;
+            opacity: 0.8;
+            transition: opacity .25s ease;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+            color: var(--gold-1);
+        }
+
+        .success-card {
+            display: none;
+            text-align: center;
+        }
+
+        .success-card .check {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+        }
+
+        .success-card h2 {
+            font-size: 1.7rem;
+            margin-bottom: 12px;
+        }
+
+        .success-card p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            opacity: 0.88;
+            margin-bottom: 28px;
+        }
+
+        footer.simple {
+            text-align: center;
+            padding: 0 0 40px;
+        }
+
+        .foot-fine {
+            font-size: 0.75rem;
+            opacity: 0.55;
+            letter-spacing: 0.04em;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="wrap">
+            <div class="brandmark">
+                <a class="brandmark" href="/" aria-label="Ir para a página inicial">
+                    <img class="brand-logo" src="/logo.png" alt="Logo Studio Laryssa Rodrigues" width="150"
+                        height="150">
+                </a>
+            </div>
+            <button class="navtoggle" aria-label="Abrir menu"
+                onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+            <ul class="navlinks" id="navlinks">
+                <li><a href="/estetica">Estética</a></li>
+                <li><a href="/nail-design">Nail Design</a></li>
+                <li><a href="/lash-design">Lash Design</a></li>
+                <li><a href="/sobrancelhas">Sobrancelhas</a></li>
+                <li><a href="/#localizacao">Localização</a></li>
+                <li><a href="/#contatos">Contatos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="booking-hero">
+            <div class="wrap">
+                <div class="booking-wrap">
+
+                    <div class="badge">
+                        <img src="/logo.png" alt="Studio Laryssa Rodrigues — Bem-estar e Cuidado">
+                    </div>
+
+                    <!-- FORM STATE -->
+                    <div id="formState">
+                        <div class="booking-head">
+                            <span class="eyebrow">Agendamento</span>
+                            <h1 class="gold-text">Vamos marcar seu horário</h1>
+                            <p>Informe seu nome e celular que retornaremos pelo WhatsApp para confirmar o melhor
+                                horário para você.</p>
+                        </div>
+
+                        <div class="booking-card">
+                            <form id="agendaForm" novalidate>
+                                <div class="field" id="nomeField">
+                                    <label for="nome">Nome completo</label>
+                                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome"
+                                        autocomplete="name" required>
+                                    <span class="field-error">Por favor, informe seu nome.</span>
+                                </div>
+
+                                <div class="field" id="celularField">
+                                    <label for="celular">Celular / WhatsApp</label>
+                                    <input type="tel" id="celular" name="celular" placeholder="(41) 99999-9999"
+                                        autocomplete="tel" required>
+                                    <span class="field-error">Informe um número de celular válido.</span>
+                                </div>
+
+                                <div class="consent-field" id="consentField">
+                                    <input type="checkbox" id="consentimento" name="consentimento">
+                                    <label for="consentimento">
+                                        Autorizo o Studio Laryssa Rodrigues a usar meu nome e celular para
+                                        entrar em contato sobre este agendamento, conforme a
+                                        <a href="/privacidade">Política de Privacidade</a>.
+                                    </label>
+                                    <span class="field-error">É necessário aceitar para continuar.</span>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Solicitar agendamento</button>
+                            </form>
+
+                            <a href="/" class="back-link">← Voltar para o início</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <footer class="simple">
+            <p class="foot-fine">© <span id="year"></span> Studio Laryssa Rodrigues — Bem-estar e Cuidado</p>
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.querySelectorAll('.navlinks a').forEach(a => {
+            a.addEventListener('click', () => document.getElementById('navlinks').classList.remove('open'));
+        });
+
+        const STUDIO_WHATSAPP = "5541998463446"; // mesmo número usado nos botões "Agendar horário"
+
+        const form = document.getElementById('agendaForm');
+        const nomeField = document.getElementById('nomeField');
+        const celularField = document.getElementById('celularField');
+        const nomeInput = document.getElementById('nome');
+        const celularInput = document.getElementById('celular');
+        const consentField = document.getElementById('consentField');
+        const consentInput = document.getElementById('consentimento');
+
+        // Máscara simples de celular BR
+        celularInput.addEventListener('input', () => {
+            let v = celularInput.value.replace(/\D/g, '').slice(0, 11);
+            if (v.length > 6) {
+                v = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+            } else if (v.length > 2) {
+                v = v.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+            } else if (v.length > 0) {
+                v = v.replace(/(\d{0,2})/, '($1');
+            }
+            celularInput.value = v.trim();
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            let valid = true;
+
+            const nome = nomeInput.value.trim();
+            if (nome.length < 2) {
+                nomeField.classList.add('invalid');
+                valid = false;
+            } else {
+                nomeField.classList.remove('invalid');
+            }
+
+            const celularDigits = celularInput.value.replace(/\D/g, '');
+            if (celularDigits.length < 10) {
+                celularField.classList.add('invalid');
+                valid = false;
+            } else {
+                celularField.classList.remove('invalid');
+            }
+
+            if (!consentInput.checked) {
+                consentField.classList.add('invalid');
+                valid = false;
+            } else {
+                consentField.classList.remove('invalid');
+            }
+
+            if (!valid) return;
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+
+            // Monta a mensagem e o link do WhatsApp
+            const mensagem = `Olá! Meu nome é ${nome} e gostaria de agendar um horário no Studio Laryssa Rodrigues. Meu celular é ${celularInput.value}.`;
+            const whatsUrl = `https://wa.me/${STUDIO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
+
+            // Salva no D1 via API do Worker (não bloqueia o redirecionamento em caso de falha)
+            try {
+                await fetch('/api/agendamento', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        nome,
+                        celular: celularInput.value,
+                        consentimento: true,
+                    }),
+                });
+            } catch (err) {
+                console.error('Falha ao salvar agendamento:', err);
+            }
+
+            window.location.href = whatsUrl;
+        });
+    </script>
+</body>
+
+</html>
