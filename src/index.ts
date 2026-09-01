@@ -47,7 +47,7 @@ export default {
 				await env.db_binding.prepare(
 					"INSERT INTO Leads (nome, celular, consentimento, consentido_em) VALUES (?, ?, 1, ?)"
 				)
-					.bind(nome, celular, consentimento, new Date().toISOString())
+					.bind(nome, celular, new Date().toISOString())
 					.run();
 
 				return new Response(JSON.stringify({ ok: true }), {
