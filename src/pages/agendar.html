@@ -567,7 +567,7 @@
             submitBtn.textContent = 'Enviando...';
 
             // Monta a mensagem e o link do WhatsApp
-            const mensagem = `Olá! Meu nome é ${nome} e gostaria de agendar um horário no Studio Laryssa Rodrigues. Meu celular é ${celularInput.value}.`;
+            const mensagem = `Olá! Meu nome é ${nome} e gostaria de agendar um horário!`;
             const whatsUrl = `https://wa.me/${STUDIO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
 
             // Salva no D1 via API do Worker (não bloqueia o redirecionamento em caso de falha)
