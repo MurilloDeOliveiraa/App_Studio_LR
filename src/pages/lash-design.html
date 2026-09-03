@@ -318,16 +318,18 @@
         }
 
         .treat-card {
-            background: rgba(246, 239, 223, 0.06);
+            background: rgba(0, 0, 0, 0.18);
             border: 1px solid var(--line);
             border-radius: 18px;
             padding: 30px 28px;
+            display: flex;
+            flex-direction: column;
             transition: transform .3s ease, background .3s ease, border-color .3s ease;
         }
 
         .treat-card:hover {
             transform: translateY(-4px);
-            background: rgba(246, 239, 223, 0.1);
+            background: rgba(0, 0, 0, 0.24);
             border-color: var(--gold-2);
         }
 
@@ -349,7 +351,17 @@
             font-size: 0.92rem;
             line-height: 1.65;
             opacity: 0.85;
-            margin: 0;
+            margin: 0 0 18px;
+        }
+
+        .treat-price {
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.03em;
+            color: var(--gold-1);
         }
 
         /* ---- INFO STRIP ---- */
@@ -608,8 +620,7 @@
                             stroke-width="1.2" stroke-linecap="round" />
                     </svg></div>
                 <h1 class="gold-text">Lash Design</h1>
-                <p class="sub">Extensão de cílios fio a fio e volume russo, além de lifting, para um olhar marcante e
-                    natural.</p>
+                <p class="sub">Volumes brasileiro, egípcio, americano e inglês, além de lash lift e manutenção. O spa labial completa o cuidado.</p>
                 <div class="cta-row">
                     <a class="btn btn-primary" href="/agendar">Agendar
                         horário</a>
@@ -628,28 +639,54 @@
                 </div>
                 <div class="treat-grid">
                     <div class="treat-card">
-                        <h3><span class="gold-text">Extensão fio a fio</span></h3>
-                        <p>Um fio sintético por cílio natural, para um efeito leve e alongado.</p>
-                    </div>
-                    <div class="treat-card">
-                        <h3><span class="gold-text">Volume russo</span></h3>
-                        <p>Vários fios finos por cílio, criando um efeito cheio e sofisticado.</p>
-                    </div>
-                    <div class="treat-card">
                         <h3><span class="gold-text">Volume brasileiro</span></h3>
                         <p>Equilíbrio entre volume e leveza, com fios em formato de Y.</p>
+                        <div class="treat-price">R$ 120,00</div>
                     </div>
                     <div class="treat-card">
-                        <h3><span class="gold-text">Lifting de cílios</span></h3>
+                        <h3><span class="gold-text">Volume Egípcio</span></h3>
+                        <p>Fios em leque com alongamento maior no canto externo, para um olhar marcante e alongado.</p>
+                        <div class="treat-price">R$ 135,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Volume Americano</span></h3>
+                        <p>Volume cheio e bem distribuído, com efeito natural e bastante presença no olhar.</p>
+                        <div class="treat-price">R$ 135,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Volume Inglês</span></h3>
+                        <p>Efeito preenchido e uniforme do começo ao fim dos cílios, com bastante densidade.</p>
+                        <div class="treat-price">R$ 135,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Lash Lift sem tintura</span></h3>
                         <p>Curvatura duradoura nos fios naturais, sem precisar de extensão.</p>
+                        <div class="treat-price">R$ 100,00</div>
                     </div>
                     <div class="treat-card">
-                        <h3><span class="gold-text">Hydra lash</span></h3>
-                        <p>Tratamento nutritivo que fortalece e hidrata os cílios naturais.</p>
+                        <h3><span class="gold-text">Lash Lift com tintura</span></h3>
+                        <p>A mesma curvatura do lash lift, com tintura que escurece os fios e marca ainda mais o olhar.</p>
+                        <div class="treat-price">R$ 130,00</div>
                     </div>
                     <div class="treat-card">
                         <h3><span class="gold-text">Manutenção</span></h3>
                         <p>Retoques periódicos para manter o efeito sempre uniforme.</p>
+                        <div class="treat-price">R$ 110,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Remoção de extensão de cílios</span></h3>
+                        <p>Retirada segura de toda a extensão aplicada, sem agredir os cílios naturais.</p>
+                        <div class="treat-price">R$ 60,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Remoção de tufo</span></h3>
+                        <p>Retirada cuidadosa dos tufos aplicados, preservando a saúde dos fios naturais.</p>
+                        <div class="treat-price">R$ 90,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Spa Labial</span></h3>
+                        <p>Esfoliação e hidratação profunda dos lábios, deixando a boca macia e com aspecto saudável.</p>
+                        <div class="treat-price">R$ 35,00</div>
                     </div>
                 </div>
             </div>
@@ -692,7 +729,7 @@
             <h2 class="gold-text">Vamos cuidar de você</h2>
             <p class="lead">Fale com a gente para agendar seu horário ou tirar dúvidas sobre nossos serviços.</p>
             <div class="social-row">
-                <a href="https://wa.me/55" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <a href="https://wa.me/5541996508375" target="_blank" rel="noopener" aria-label="WhatsApp">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 12a8 8 0 10-14.8 4.2L4 21l4.9-1.3A8 8 0 0020 12z" stroke="var(--gold-2)"
                             stroke-width="1.3" />

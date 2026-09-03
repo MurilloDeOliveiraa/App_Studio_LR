@@ -318,16 +318,18 @@
         }
 
         .treat-card {
-            background: rgba(246, 239, 223, 0.06);
+            background: rgba(0, 0, 0, 0.18);
             border: 1px solid var(--line);
             border-radius: 18px;
             padding: 30px 28px;
+            display: flex;
+            flex-direction: column;
             transition: transform .3s ease, background .3s ease, border-color .3s ease;
         }
 
         .treat-card:hover {
             transform: translateY(-4px);
-            background: rgba(246, 239, 223, 0.1);
+            background: rgba(0, 0, 0, 0.24);
             border-color: var(--gold-2);
         }
 
@@ -349,7 +351,17 @@
             font-size: 0.92rem;
             line-height: 1.65;
             opacity: 0.85;
-            margin: 0;
+            margin: 0 0 18px;
+        }
+
+        .treat-price {
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.03em;
+            color: var(--gold-1);
         }
 
         /* ---- INFO STRIP ---- */
@@ -607,8 +619,7 @@
                         <path d="M24 12v6" stroke="var(--gold-2)" stroke-width="1.2" stroke-linecap="round" />
                     </svg></div>
                 <h1 class="gold-text">Nail Design</h1>
-                <p class="sub">Esmaltação em gel, alongamentos e nail art autoral, com acabamento impecável e
-                    durabilidade.</p>
+                <p class="sub">Esmaltação em gel nas mãos e nos pés, alongamento em molde ou fibra de vidro, banho de gel, blindagem e manutenção.</p>
                 <div class="cta-row">
                     <a class="btn btn-primary" href="/agendar">Agendar
                         horário</a>
@@ -621,43 +632,55 @@
             <div class="wrap">
                 <div class="section-head">
                     <h2 class="gold-text">Unhas com identidade e cuidado</h2>
-                    <p>Do clássico ao autoral, cada trabalho é feito com atenção ao formato, à saúde da unha e ao seu
-                        estilo.</p>
+                    <p>Do esmalte à manutenção, cada trabalho é feito com atenção ao formato, à saúde da unha e ao seu estilo.</p>
                     <br />
                     <span class="eyebrow">Nossos serviços</span>
                 </div>
                 <div class="treat-grid">
                     <div class="treat-card">
-                        <h3><span class="gold-text">Esmaltação em gel</span></h3>
+                        <h3><span class="gold-text">Esmaltação em Gel (Mãos)</span></h3>
                         <p>Cor uniforme, brilho intenso e durabilidade de semanas sem lascar.</p>
+                        <div class="treat-price">R$ 100,00</div>
                     </div>
                     <div class="treat-card">
-                        <h3><span class="gold-text">Alongamento de unhas em gel</span></h3>
-                        <p>Unhas resistentes, duradouras e com acabamento perfeito.</p>
+                        <h3><span class="gold-text">Esmaltação em Gel (Pés)</span></h3>
+                        <p>O mesmo acabamento em gel nos pés, com cor firme e brilho que dura semanas.</p>
+                        <div class="treat-price">R$ 50,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Alongamento Molde F1</span></h3>
+                        <p>Alongamento em gel com molde F1: unhas resistentes, duradouras e com acabamento perfeito.</p>
+                        <div class="treat-price">R$ 150,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Alongamento Fibra de Vidro</span></h3>
+                        <p>Alongamento com fibra de vidro, mais leve e flexível, com aparência bem natural.</p>
+                        <div class="treat-price">R$ 170,00</div>
                     </div>
                     <div class="treat-card">
                         <h3><span class="gold-text">Manutenção de unhas em gel</span></h3>
                         <p>Mantenha suas unhas sempre impecáveis e alinhadas.</p>
+                        <div class="treat-price">R$ 130,00</div>
                     </div>
                     <div class="treat-card">
                         <h3><span class="gold-text">Remoção de unhas de gel</span></h3>
                         <p>Remoção segura de unhas em gel em Curitiba, sem danificar a unha natural.</p>
-                    </div>
-                    <div class="treat-card">
-                        <h3><span class="gold-text">Nail art personalizada</span></h3>
-                        <p>Desenhos, francesinhas e detalhes exclusivos para cada ocasião.</p>
-                    </div>
-                    <div class="treat-card">
-                        <h3><span class="gold-text">Babyboomer</span></h3>
-                        <p>Técnica de degradê suave e elegante para unhas em gel. Efeito sofisticado e natural.</p>
+                        <div class="treat-price">R$ 50,00</div>
                     </div>
                     <div class="treat-card">
                         <h3><span class="gold-text">Banho de Gel</span></h3>
                         <p>Fortalece e protege as unhas naturais. Acabamento brilhante e resistente!</p>
+                        <div class="treat-price">R$ 80,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Blindagem</span></h3>
+                        <p>Camada protetora sobre a unha natural, que reforça, evita quebras e dá brilho duradouro.</p>
+                        <div class="treat-price">R$ 115,00</div>
                     </div>
                     <div class="treat-card">
                         <h3><span class="gold-text">Reposição de unhas</span></h3>
                         <p>Reposição de unhas em gel (A partir de 2)</p>
+                        <div class="treat-price">R$ 10,00</div>
                     </div>
                 </div>
             </div>
@@ -700,7 +723,7 @@
             <h2 class="gold-text">Vamos cuidar de você</h2>
             <p class="lead">Fale com a gente para agendar seu horário ou tirar dúvidas sobre nossos serviços.</p>
             <div class="social-row">
-                <a href="https://wa.me/55" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <a href="https://wa.me/5541998463446" target="_blank" rel="noopener" aria-label="WhatsApp">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 12a8 8 0 10-14.8 4.2L4 21l4.9-1.3A8 8 0 0020 12z" stroke="var(--gold-2)"
                             stroke-width="1.3" />

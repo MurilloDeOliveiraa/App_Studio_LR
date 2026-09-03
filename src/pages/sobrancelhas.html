@@ -318,16 +318,18 @@
         }
 
         .treat-card {
-            background: rgba(246, 239, 223, 0.06);
+            background: rgba(0, 0, 0, 0.18);
             border: 1px solid var(--line);
             border-radius: 18px;
             padding: 30px 28px;
+            display: flex;
+            flex-direction: column;
             transition: transform .3s ease, background .3s ease, border-color .3s ease;
         }
 
         .treat-card:hover {
             transform: translateY(-4px);
-            background: rgba(246, 239, 223, 0.1);
+            background: rgba(0, 0, 0, 0.24);
             border-color: var(--gold-2);
         }
 
@@ -349,7 +351,17 @@
             font-size: 0.92rem;
             line-height: 1.65;
             opacity: 0.85;
-            margin: 0;
+            margin: 0 0 18px;
+        }
+
+        .treat-price {
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.03em;
+            color: var(--gold-1);
         }
 
         /* ---- INFO STRIP ---- */
@@ -608,8 +620,7 @@
                             stroke-linecap="round" />
                     </svg></div>
                 <h1 class="gold-text">Sobrancelhas</h1>
-                <p class="sub">Design personalizado, henna e laminação para uma sobrancelha alinhada ao seu rosto e
-                    estilo.</p>
+                <p class="sub">Design personalizado, com ou sem henna, para uma sobrancelha alinhada ao seu rosto. Também fazemos buço.</p>
                 <div class="cta-row">
                     <a class="btn btn-primary" href="/agendar">Agendar
                         horário</a>
@@ -629,20 +640,19 @@
                 </div>
                 <div class="treat-grid">
                     <div class="treat-card">
-                        <h3><span class="gold-text">Design com pinça e linha</span></h3>
+                        <h3><span class="gold-text">Design Personalizado</span></h3>
                         <p>Remoção precisa de fios para um contorno limpo e natural.</p>
+                        <div class="treat-price">R$ 50,00</div>
                     </div>
                     <div class="treat-card">
-                        <h3><span class="gold-text">Henna</span></h3>
+                        <h3><span class="gold-text">Design com Henna</span></h3>
                         <p>Coloração temporária que preenche falhas e define o formato.</p>
+                        <div class="treat-price">R$ 65,00</div>
                     </div>
                     <div class="treat-card">
-                        <h3><span class="gold-text">Laminação</span></h3>
-                        <p>Fios alinhados e disciplinados para um efeito preenchido e moderno.</p>
-                    </div>
-                    <div class="treat-card">
-                        <h3><span class="gold-text">Coloração</span></h3>
-                        <p>Ajuste de tom dos fios para harmonizar com a cor do cabelo e da pele.</p>
+                        <h3><span class="gold-text">Buço</span></h3>
+                        <p>Remoção dos pelos do buço com acabamento limpo, rápido e preciso.</p>
+                        <div class="treat-price">R$ 15,00</div>
                     </div>
                 </div>
             </div>
@@ -685,7 +695,7 @@
             <h2 class="gold-text">Vamos cuidar de você</h2>
             <p class="lead">Fale com a gente para agendar seu horário ou tirar dúvidas sobre nossos serviços.</p>
             <div class="social-row">
-                <a href="https://wa.me/55" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <a href="https://wa.me/61998301910" target="_blank" rel="noopener" aria-label="WhatsApp">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 12a8 8 0 10-14.8 4.2L4 21l4.9-1.3A8 8 0 0020 12z" stroke="var(--gold-2)"
                             stroke-width="1.3" />

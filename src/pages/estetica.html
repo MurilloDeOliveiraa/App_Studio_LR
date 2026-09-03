@@ -17,6 +17,7 @@
             --taupe: #a89a80;
             --taupe-dark: #97896f;
             --mauve: #8c7a70;
+            --mauve-mid: #837269;
             --mauve-dark: #7a6a61;
             --gold-1: #f1dcae;
             --gold-2: #cda86a;
@@ -278,6 +279,10 @@
             background: var(--mauve);
         }
 
+        .alt-mid {
+            background: var(--mauve-mid);
+        }
+
         .eyebrow {
             font-size: 0.78rem;
             letter-spacing: 0.22em;
@@ -319,16 +324,18 @@
         }
 
         .treat-card {
-            background: rgba(246, 239, 223, 0.06);
+            background: rgba(0, 0, 0, 0.18);
             border: 1px solid var(--line);
             border-radius: 18px;
             padding: 30px 28px;
+            display: flex;
+            flex-direction: column;
             transition: transform .3s ease, background .3s ease, border-color .3s ease;
         }
 
         .treat-card:hover {
             transform: translateY(-4px);
-            background: rgba(246, 239, 223, 0.1);
+            background: rgba(0, 0, 0, 0.24);
             border-color: var(--gold-2);
         }
 
@@ -350,7 +357,17 @@
             font-size: 0.92rem;
             line-height: 1.65;
             opacity: 0.85;
-            margin: 0;
+            margin: 0 0 18px;
+        }
+
+        .treat-price {
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.03em;
+            color: var(--gold-1);
         }
 
         /* ---- INFO STRIP ---- */
@@ -610,8 +627,7 @@
                             stroke-linecap="round" />
                     </svg></div>
                 <h1 class="gold-text">Estética</h1>
-                <p class="sub">Tratamentos faciais e corporais que unem relaxamento e resultado, com protocolos pensados
-                    para cada tipo de pele.</p>
+                <p class="sub">Drenagem linfática, pós-operatório, massagem relaxante, ventosaterapia e limpeza de pele. Atendimento avulso ou em pacote.</p>
                 <div class="cta-row">
                     <a class="btn btn-primary" href="/agendar">Agendar
                         horário</a>
@@ -624,36 +640,87 @@
             <div class="wrap">
                 <div class="section-head">
                     <h2 class="gold-text">Cuidado completo para pele e corpo</h2>
-                    <p>Cada protocolo é personalizado após uma avaliação, respeitando as necessidades e o tempo da sua
-                        pele.</p>
+                    <p>Cada atendimento começa com uma avaliação, para escolher a técnica e o ritmo que fazem sentido para o seu corpo.</p>
                     <br />
-                    <span class="eyebrow">Nossos serviços</span>
+                    <span class="eyebrow">Nossos serviços - Sessões Avulsas</span>
                 </div>
                 <div class="treat-grid">
                     <div class="treat-card">
                         <h3><span class="gold-text">Limpeza de pele</span></h3>
                         <p>Limpeza de pele profunda. Remove cravos, impurezas e células mortas, deixando a pele renovada
                             e saudável.</p>
+                        <div class="treat-price">R$ 140,00</div>
                     </div>
                     <div class="treat-card">
                         <h3><span class="gold-text">Drenagem linfática</span></h3>
                         <p>Ajuda reduzir inchaço, retenção de líquidos e melhorar a circulação. Técnica
                             especializada que ativa o sistema linfático.</p>
+                        <div class="treat-price">R$ 150,00</div>
                     </div>
                     <div class="treat-card">
-                        <h3><span class="gold-text">Drenagem linfática Pós-Operatório</span></h3>
+                        <h3><span class="gold-text">Drenagem Pós-Operatório Corporal</span></h3>
                         <p>Auxilia na recuperação de cirurgias plásticas, reduz edemas e acelera a cicatrização.</p>
+                        <div class="treat-price">R$ 200,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Drenagem Pós-Operatório Facial</span></h3>
+                        <p>Reduz o inchaço e o desconforto no rosto após cirurgias e procedimentos faciais, acelerando a recuperação.</p>
+                        <div class="treat-price">R$ 150,00</div>
                     </div>
                     <div class="treat-card">
                         <h3><span class="gold-text">Massagem Relaxante</span></h3>
                         <p>Alivia estresse, tensões musculares e proporciona bem-estar. Técnica profissional para
                             relaxamento profundo do corpo e da mente.</p>
+                        <div class="treat-price">R$ 180,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Ventosa Terapia</span></h3>
+                        <p>Ventosas que fazem uma sucção suave na pele, soltando a musculatura e ativando a circulação da região.</p>
+                        <div class="treat-price">R$ 180,00</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="alt">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2 class="gold-text">Pacotes de Drenagem</h2>
+                    <p>Sessões combinadas com valor fechado, para quem quer manter o resultado ao longo do tratamento.
+                    </p>
+                    <br />
+                    <span class="eyebrow">Melhor valor por sessão</span>
+                </div>
+                <div class="treat-grid">
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Drenagem Linfática Corporal (5 sessões)</span></h3>
+                        <p>Cinco sessões de drenagem linfática com valor fechado. Ideal para manter os resultados com
+                            regularidade.</p>
+                        <div class="treat-price">R$ 650,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Drenagem Linfática Corporal (10 sessões)</span></h3>
+                        <p>Dez sessões com o melhor valor por sessão. Indicado para tratamentos mais longos e
+                            contínuos.</p>
+                        <div class="treat-price">R$ 1.150,00</div>
+                    </div>
+                     <div class="treat-card">
+                        <h3><span class="gold-text">Drenagem Pós-Operatório Facial (5 sessões)</span></h3>
+                        <p>Cinco sessões de drenagem linfática com valor fechado. Ideal para manter os resultados com
+                            regularidade.</p>
+                        <div class="treat-price">R$ 500,00</div>
+                    </div>
+                    <div class="treat-card">
+                        <h3><span class="gold-text">Drenagem Pós-Operatório Corporal (10 sessões)</span></h3>
+                        <p>Dez sessões com o melhor valor por sessão. Indicado para tratamentos mais longos e
+                            contínuos.</p>
+                        <div class="treat-price">R$ 1.500,00</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="alt-mid">
             <div class="wrap">
                 <div class="info-strip">
                     <div class="info-item">
@@ -690,7 +757,7 @@
             <h2 class="gold-text">Vamos cuidar de você</h2>
             <p class="lead">Fale com a gente para agendar seu horário ou tirar dúvidas sobre nossos serviços.</p>
             <div class="social-row">
-                <a href="https://wa.me/55" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <a href="https://wa.me/5541998463446" target="_blank" rel="noopener" aria-label="WhatsApp">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 12a8 8 0 10-14.8 4.2L4 21l4.9-1.3A8 8 0 0020 12z" stroke="var(--gold-2)"
                             stroke-width="1.3" />
