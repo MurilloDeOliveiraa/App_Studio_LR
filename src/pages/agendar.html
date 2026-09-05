@@ -274,6 +274,92 @@
             background: rgba(246, 239, 223, 0.12);
         }
 
+        /* ---- ESCOLHA DO SERVICO ---- */
+        .cat-titulo {
+            display: block;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold-1);
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .field .cat-option {
+            display: block;
+            margin: 0;
+            font-size: inherit;
+            letter-spacing: normal;
+            text-transform: none;
+            color: inherit;
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .field .cat-option input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .cat-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            height: 100%;
+            padding: 16px 8px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: rgba(246, 239, 223, 0.04);
+            text-align: center;
+            transition: border-color .25s ease, background .25s ease;
+        }
+
+        .cat-box svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .cat-nome {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--gold-1);
+        }
+
+        .cat-quem {
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            opacity: 0.7;
+        }
+
+        .cat-option:hover .cat-box {
+            border-color: rgba(205, 168, 106, 0.65);
+            background: rgba(246, 239, 223, 0.08);
+        }
+
+        .field .cat-option input:checked + .cat-box {
+            border-color: var(--gold-2);
+            background: rgba(241, 220, 174, 0.15);
+        }
+
+        .field .cat-option input:focus-visible + .cat-box {
+            border-color: var(--gold-1);
+            box-shadow: 0 0 0 2px rgba(241, 220, 174, 0.35);
+        }
+
+        .field.invalid .cat-box {
+            border-color: #c98787;
+        }
+
         .field-error {
             display: none;
             margin-top: 8px;
@@ -457,12 +543,74 @@
                     <div id="formState">
                         <div class="booking-head">
                             <h1 class="gold-text">Vamos marcar seu horário</h1>
-                            <p>Informe seu nome e celular que retornaremos pelo WhatsApp para confirmar o melhor
-                                horário para você.</p>
+                            <p>Selecione o serviço desejado e informe seu nome e celular. Após isso, você será redirecionada para o WhatsApp da profissional para confirmar o seu horário.</p>
                         </div>
 
                         <div class="booking-card">
                             <form id="agendaForm" novalidate>
+                                <div class="field" id="categoriaField">
+                                    <span class="cat-titulo" id="categoriaLabel">O que gostaria de agendar?</span>
+                                    <div class="cat-grid" role="radiogroup" aria-labelledby="categoriaLabel">
+                                        <label class="cat-option">
+                                            <input type="radio" name="categoria" value="Estética" data-whats="5541998463446"
+                                                data-quem="Laryssa">
+                                            <span class="cat-box">
+                                                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                    aria-hidden="true">
+                                                    <path d="M21 39c-1.5-15 5-25 17-28 2.5 15-4.5 26-17 28z" stroke="var(--gold-1)" stroke-width="1.6"
+                                                stroke-linejoin="round" />
+                                            <path d="M21 39c0-9 4.5-17 11-22" stroke="var(--gold-1)" stroke-width="1.6"
+                                                stroke-linecap="round" />
+                                                </svg>
+                                                <span class="cat-nome">Estética</span>
+                                                <span class="cat-quem">com Laryssa</span>
+                                            </span>
+                                        </label>
+                                        <label class="cat-option">
+                                            <input type="radio" name="categoria" value="Nail Design" data-whats="5541998463446"
+                                                data-quem="Laryssa">
+                                            <span class="cat-box">
+                                                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                    aria-hidden="true">
+                                                    <path d="M16 30c0-9 3-18 8-18s8 9 8 18c0 4-3.5 7-8 7s-8-3-8-7z" stroke="var(--gold-1)"
+                                                stroke-width="1.6" />
+                                            <path d="M24 12v6" stroke="var(--gold-1)" stroke-width="1.6" stroke-linecap="round" />
+                                                </svg>
+                                                <span class="cat-nome">Nail Design</span>
+                                                <span class="cat-quem">com Laryssa</span>
+                                            </span>
+                                        </label>
+                                        <label class="cat-option">
+                                            <input type="radio" name="categoria" value="Lash Design" data-whats="5541996508375"
+                                                data-quem="Polyana">
+                                            <span class="cat-box">
+                                                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                    aria-hidden="true">
+                                                    <path d="M8 26c6-10 26-10 32 0" stroke="var(--gold-1)" stroke-width="1.6" stroke-linecap="round" />
+                                            <path d="M12 24l-3-4M18 21.5l-2-5M24 20.5V15M30 21.5l2-5M36 24l3-4" stroke="var(--gold-1)"
+                                                stroke-width="1.6" stroke-linecap="round" />
+                                                </svg>
+                                                <span class="cat-nome">Lash Design</span>
+                                                <span class="cat-quem">com Polyana</span>
+                                            </span>
+                                        </label>
+                                        <label class="cat-option">
+                                            <input type="radio" name="categoria" value="Sobrancelhas" data-whats="5561998301910"
+                                                data-quem="Valentina">
+                                            <span class="cat-box">
+                                                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                    aria-hidden="true">
+                                                    <path d="M8 30c6-11 20-15 31-10-11 0-19 3-25 12-1.6 2.4-5.2 1-6-2z" stroke="var(--gold-1)"
+                                                stroke-width="1.6" stroke-linejoin="round" />
+                                                </svg>
+                                                <span class="cat-nome">Sobrancelhas</span>
+                                                <span class="cat-quem">com Valentina</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <span class="field-error">Escolha um serviço para continuar.</span>
+                                </div>
+
                                 <div class="field" id="nomeField">
                                     <label for="nome">Nome completo</label>
                                     <input type="text" id="nome" name="nome" placeholder="Digite seu nome"
@@ -509,15 +657,19 @@
             a.addEventListener('click', () => document.getElementById('navlinks').classList.remove('open'));
         });
 
-        const STUDIO_WHATSAPP = "5541998463446"; // mesmo número usado nos botões "Agendar horário"
-
         const form = document.getElementById('agendaForm');
+        const categoriaField = document.getElementById('categoriaField');
         const nomeField = document.getElementById('nomeField');
         const celularField = document.getElementById('celularField');
         const nomeInput = document.getElementById('nome');
         const celularInput = document.getElementById('celular');
         const consentField = document.getElementById('consentField');
         const consentInput = document.getElementById('consentimento');
+
+        // Ao escolher um serviço, some o aviso de erro
+        form.querySelectorAll('input[name="categoria"]').forEach(opcao => {
+            opcao.addEventListener('change', () => categoriaField.classList.remove('invalid'));
+        });
 
         // Máscara simples de celular BR
         celularInput.addEventListener('input', () => {
@@ -536,6 +688,14 @@
             e.preventDefault();
 
             let valid = true;
+
+            const categoriaEscolhida = form.querySelector('input[name="categoria"]:checked');
+            if (!categoriaEscolhida) {
+                categoriaField.classList.add('invalid');
+                valid = false;
+            } else {
+                categoriaField.classList.remove('invalid');
+            }
 
             const nome = nomeInput.value.trim();
             if (nome.length < 2) {
@@ -566,9 +726,11 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Enviando...';
 
-            // Monta a mensagem e o link do WhatsApp
-            const mensagem = `Olá! Meu nome é ${nome} e gostaria de agendar um horário!`;
-            const whatsUrl = `https://wa.me/${STUDIO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
+            // Monta a mensagem e o link do WhatsApp da profissional escolhida
+            const categoria = categoriaEscolhida.value;
+            const quem = categoriaEscolhida.dataset.quem;
+            const mensagem = `Olá, ${quem}! Meu nome é ${nome} e gostaria de agendar um horário de ${categoria}.`;
+            const whatsUrl = `https://wa.me/${categoriaEscolhida.dataset.whats}?text=${encodeURIComponent(mensagem)}`;
 
             // Salva no D1 via API do Worker (não bloqueia o redirecionamento em caso de falha)
             try {
@@ -578,6 +740,7 @@
                     body: JSON.stringify({
                         nome,
                         celular: celularInput.value,
+                        categoria,
                         consentimento: true,
                     }),
                 });

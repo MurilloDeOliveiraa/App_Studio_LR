@@ -18,6 +18,9 @@ import sobrancelhas from "./pages/sobrancelhas.html";
 import agendar from "./pages/agendar.html";
 import privacidade from "./pages/privacidade.html";
 
+// categorias que o formulario de agendamento aceita
+const CATEGORIAS = ["Estética", "Nail Design", "Lash Design", "Sobrancelhas"];
+
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
 		const url = new URL(request.url);
@@ -25,13 +28,26 @@ export default {
 		// ---- API: salvar agendamento no D1 ----
 		if (url.pathname === "/api/agendamento" && request.method === "POST") {
 			try {
-				const body = await request.json<{ nome?: string; celular?: string; consentimento?: boolean }>();
+				const body = await request.json<{
+					nome?: string;
+					celular?: string;
+					categoria?: string;
+					consentimento?: boolean;
+				}>();
 				const nome = (body.nome ?? "").trim();
 				const celular = (body.celular ?? "").trim();
+				const categoria = (body.categoria ?? "").trim();
 				const consentimento = body.consentimento === true;
 
 				if (!nome || nome.length < 2 || !celular || celular.replace(/\D/g, "").length < 10) {
 					return new Response(JSON.stringify({ ok: false, error: "Dados inválidos" }), {
+						status: 400,
+						headers: { "content-type": "application/json; charset=utf-8" },
+					});
+				}
+
+				if (!CATEGORIAS.includes(categoria)) {
+					return new Response(JSON.stringify({ ok: false, error: "Categoria inválida" }), {
 						status: 400,
 						headers: { "content-type": "application/json; charset=utf-8" },
 					});
@@ -45,9 +61,9 @@ export default {
 				}
 
 				await env.db_binding.prepare(
-					"INSERT INTO Leads (nome, celular, consentimento, consentido_em) VALUES (?, ?, 1, ?)"
+					"INSERT INTO Leads (nome, celular, categoria, consentimento, consentido_em) VALUES (?, ?, ?, 1, ?)"
 				)
-					.bind(nome, celular, new Date().toISOString())
+					.bind(nome, celular, categoria, new Date().toISOString())
 					.run();
 
 				return new Response(JSON.stringify({ ok: true }), {

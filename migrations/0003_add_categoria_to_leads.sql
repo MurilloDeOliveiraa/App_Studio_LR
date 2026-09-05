@@ -1,0 +1,1 @@
+ALTER TABLE Leads ADD COLUMN categoria TEXT;
