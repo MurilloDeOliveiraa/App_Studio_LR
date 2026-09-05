@@ -565,6 +565,71 @@
             height: 20px;
         }
 
+        /* ---- PROFISSIONAL ---- */
+        .pro-card {
+            background: rgba(0, 0, 0, 0.18);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 26px 18px;
+            max-width: 260px;
+            margin: 0 auto 44px;
+            transition: transform .3s ease, background .3s ease, border-color .3s ease;
+        }
+
+        .pro-card:hover {
+            transform: translateY(-4px);
+            background: rgba(0, 0, 0, 0.24);
+            border-color: var(--gold-2);
+        }
+
+        .pro-photo {
+            position: relative;
+            width: 92px;
+            height: 92px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background: rgba(246, 239, 223, 0.08);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pro-photo img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pro-photo span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.1rem;
+            color: var(--gold-1);
+        }
+
+        .pro-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+        }
+
+        .pro-social {
+            margin-bottom: 0;
+            gap: 14px;
+        }
+
+        .pro-social a {
+            width: 40px;
+            height: 40px;
+        }
+
+        .pro-social svg {
+            width: 17px;
+            height: 17px;
+        }
+
         .foot-fine {
             font-size: 0.75rem;
             opacity: 0.55;
@@ -614,10 +679,8 @@
         <section class="page-hero">
             <div class="wrap">
                 <div class="icon-badge"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 22c4-6 12-8 16-4" stroke="var(--gold-2)" stroke-width="1.4"
-                            stroke-linecap="round" />
-                        <path d="M24 22c4-6 12-8 16-4" stroke="var(--gold-2)" stroke-width="1.4"
-                            stroke-linecap="round" />
+                        <path d="M8 30c6-11 20-15 31-10-11 0-19 3-25 12-1.6 2.4-5.2 1-6-2z" stroke="var(--gold-1)"
+                            stroke-width="1.2" stroke-linejoin="round" />
                     </svg></div>
                 <h1 class="gold-text">Sobrancelhas</h1>
                 <p class="sub">Design personalizado, com ou sem henna, para uma sobrancelha alinhada ao seu rosto. Também fazemos buço.</p>
@@ -680,11 +743,13 @@
                     </div>
                     <div class="info-item">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 5h16v14H4z" stroke="var(--gold-2)" stroke-width="1.3" />
-                            <path d="M4 7l8 6 8-6" stroke="var(--gold-2)" stroke-width="1.3" />
+                            <rect x="7" y="2.5" width="10" height="19" rx="2.5" stroke="var(--gold-2)"
+                                stroke-width="1.3" />
+                            <path d="M10.5 5.5h3" stroke="var(--gold-2)" stroke-width="1.3" stroke-linecap="round" />
+                            <path d="M11 18.4h2" stroke="var(--gold-2)" stroke-width="1.3" stroke-linecap="round" />
                         </svg>
                         <h4>Como agendar</h4>
-                        <p>Pelo Instagram ou WhatsApp do studio.</p>
+                        <p>Pelo WhatsApp ou Instagram da Valentina, no fim desta página.</p>
                     </div>
                 </div>
             </div>
@@ -693,23 +758,34 @@
     <footer id="contatos-footer">
         <div class="wrap">
             <h2 class="gold-text">Vamos cuidar de você</h2>
-            <p class="lead">Fale com a gente para agendar seu horário ou tirar dúvidas sobre nossos serviços.</p>
-            <div class="social-row">
-                <a href="https://wa.me/61998301910" target="_blank" rel="noopener" aria-label="WhatsApp">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 12a8 8 0 10-14.8 4.2L4 21l4.9-1.3A8 8 0 0020 12z" stroke="var(--gold-2)"
-                            stroke-width="1.3" />
-                        <path d="M9 9.5c0 3.5 2.5 6 6 6" stroke="var(--gold-2)" stroke-width="1.3"
-                            stroke-linecap="round" />
-                    </svg>
-                </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="4" y="4" width="16" height="16" rx="5" stroke="var(--gold-2)" stroke-width="1.3" />
-                        <circle cx="12" cy="12" r="3.5" stroke="var(--gold-2)" stroke-width="1.3" />
-                        <circle cx="16.5" cy="7.5" r="0.8" fill="var(--gold-2)" />
-                    </svg>
-                </a>
+            <p class="lead">Fale direto com a profissional que faz esse atendimento.</p>
+            <div class="pro-card">
+                <div class="pro-photo">
+                    <img src="/images/valentina.jpeg" alt="Valentina">
+                    <span>V</span>
+                </div>
+                <h3 class="gold-text">Valentina</h3>
+                <p class="lead">Sobrancelhas e Buço</p>
+                <div class="social-row pro-social">
+                    <a href="https://wa.me/5561998301910" target="_blank" rel="noopener"
+                        aria-label="WhatsApp de Valentina">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12a8 8 0 10-14.8 4.2L4 21l4.9-1.3A8 8 0 0020 12z" stroke="var(--gold-2)"
+                                stroke-width="1.3" />
+                            <path d="M9 9.5c0 3.5 2.5 6 6 6" stroke="var(--gold-2)" stroke-width="1.3"
+                                stroke-linecap="round" />
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com/valentinadegodoy" target="_blank" rel="noopener"
+                        aria-label="Instagram de Valentina">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="4" width="16" height="16" rx="5" stroke="var(--gold-2)"
+                                stroke-width="1.3" />
+                            <circle cx="12" cy="12" r="3.5" stroke="var(--gold-2)" stroke-width="1.3" />
+                            <circle cx="16.5" cy="7.5" r="0.8" fill="var(--gold-2)" />
+                        </svg>
+                    </a>
+                </div>
             </div>
             <div class="foot-rule"></div>
             <p class="foot-fine">© <span class="year"></span> Studio Laryssa Rodrigues — Bem-estar e Cuidado</p>
@@ -717,6 +793,10 @@
     </footer>
 
     <script>
+        document.querySelectorAll('.pro-photo img').forEach(img => {
+            if (img.complete && img.naturalWidth === 0) img.remove();
+            else img.addEventListener('error', () => img.remove());
+        });
         document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
         document.querySelectorAll('.navlinks a').forEach(a => {
             a.addEventListener('click', () => document.getElementById('navlinks').classList.remove('open'));

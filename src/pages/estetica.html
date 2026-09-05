@@ -571,6 +571,71 @@
             height: 20px;
         }
 
+        /* ---- PROFISSIONAL ---- */
+        .pro-card {
+            background: rgba(0, 0, 0, 0.18);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 26px 18px;
+            max-width: 260px;
+            margin: 0 auto 44px;
+            transition: transform .3s ease, background .3s ease, border-color .3s ease;
+        }
+
+        .pro-card:hover {
+            transform: translateY(-4px);
+            background: rgba(0, 0, 0, 0.24);
+            border-color: var(--gold-2);
+        }
+
+        .pro-photo {
+            position: relative;
+            width: 92px;
+            height: 92px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background: rgba(246, 239, 223, 0.08);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pro-photo img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pro-photo span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.1rem;
+            color: var(--gold-1);
+        }
+
+        .pro-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+        }
+
+        .pro-social {
+            margin-bottom: 0;
+            gap: 14px;
+        }
+
+        .pro-social a {
+            width: 40px;
+            height: 40px;
+        }
+
+        .pro-social svg {
+            width: 17px;
+            height: 17px;
+        }
+
         .foot-fine {
             font-size: 0.75rem;
             opacity: 0.55;
@@ -620,14 +685,14 @@
         <section class="page-hero">
             <div class="wrap">
                 <div class="icon-badge"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="24" cy="24" r="22" stroke="var(--gold-2)" stroke-width="1.2" />
-                        <path d="M24 14c-6 0-10 5-10 11 0 5 4 9 10 9s10-4 10-9c0-6-4-11-10-11z" stroke="var(--gold-2)"
-                            stroke-width="1.2" />
-                        <path d="M18 22c1.5-2 4.5-2 6 0M24 22c1.5-2 4.5-2 6 0" stroke="var(--gold-2)" stroke-width="1.2"
-                            stroke-linecap="round" />
+                        <path d="M21 39c-1.5-15 5-25 17-28 2.5 15-4.5 26-17 28z" stroke="var(--gold-1)" stroke-width="1.2"
+                            stroke-linejoin="round" />
+                        <path d="M21 39c0-9 4.5-17 11-22" stroke="var(--gold-1)" stroke-width="1.2" stroke-linecap="round" />
+                        <path d="M21 39c-3.5-2-6-4.5-7.5-8" stroke="var(--gold-1)" stroke-width="1.2" stroke-linecap="round" />
                     </svg></div>
                 <h1 class="gold-text">Estética</h1>
-                <p class="sub">Drenagem linfática, pós-operatório, massagem relaxante, ventosaterapia e limpeza de pele. Atendimento avulso ou em pacote.</p>
+                <p class="sub">Drenagem linfática, pós-operatório, massagem relaxante, limpeza de pele e ventosa terapia.</p>
+                 <p class="sub">Atendimento avulso ou em pacote.</p>
                 <div class="cta-row">
                     <a class="btn btn-primary" href="/agendar">Agendar
                         horário</a>
@@ -640,7 +705,7 @@
             <div class="wrap">
                 <div class="section-head">
                     <h2 class="gold-text">Cuidado completo para pele e corpo</h2>
-                    <p>Cada atendimento começa com uma avaliação, para escolher a técnica e o ritmo que fazem sentido para o seu corpo.</p>
+                    <p>Cada procedimento é pensado especialmente em você e tem o objetivo de promover beleza e bem-estar!</p>
                     <br />
                     <span class="eyebrow">Nossos serviços - Sessões Avulsas</span>
                 </div>
@@ -676,7 +741,7 @@
                     <div class="treat-card">
                         <h3><span class="gold-text">Ventosa Terapia</span></h3>
                         <p>Ventosas que fazem uma sucção suave na pele, soltando a musculatura e ativando a circulação da região.</p>
-                        <div class="treat-price">R$ 180,00</div>
+                        <div class="treat-price">R$ 150,00</div>
                     </div>
                 </div>
             </div>
@@ -693,25 +758,29 @@
                 </div>
                 <div class="treat-grid">
                     <div class="treat-card">
-                        <h3><span class="gold-text">Drenagem Linfática Corporal (5 sessões)</span></h3>
+                        <h3><span class="gold-text">Drenagem Linfática Corporal</span></h3>
+                        <h3><span class="gold-text">(5 sessões)</span></h3>
                         <p>Cinco sessões de drenagem linfática com valor fechado. Ideal para manter os resultados com
                             regularidade.</p>
                         <div class="treat-price">R$ 650,00</div>
                     </div>
                     <div class="treat-card">
-                        <h3><span class="gold-text">Drenagem Linfática Corporal (10 sessões)</span></h3>
+                        <h3><span class="gold-text">Drenagem Linfática Corporal</span></h3>
+                        <h3><span class="gold-text">(10 sessões)</span></h3>
                         <p>Dez sessões com o melhor valor por sessão. Indicado para tratamentos mais longos e
                             contínuos.</p>
                         <div class="treat-price">R$ 1.150,00</div>
                     </div>
                      <div class="treat-card">
-                        <h3><span class="gold-text">Drenagem Pós-Operatório Facial (5 sessões)</span></h3>
+                        <h3><span class="gold-text">Drenagem Pós-Operatório Facial</span></h3>
+                        <h3><span class="gold-text">(5 sessões)</span></h3>
                         <p>Cinco sessões de drenagem linfática com valor fechado. Ideal para manter os resultados com
                             regularidade.</p>
                         <div class="treat-price">R$ 500,00</div>
                     </div>
                     <div class="treat-card">
-                        <h3><span class="gold-text">Drenagem Pós-Operatório Corporal (10 sessões)</span></h3>
+                        <h3><span class="gold-text">Drenagem Pós-Operatório Corporal</span></h3>
+                        <h3><span class="gold-text">(10 sessões)</span></h3>
                         <p>Dez sessões com o melhor valor por sessão. Indicado para tratamentos mais longos e
                             contínuos.</p>
                         <div class="treat-price">R$ 1.500,00</div>
@@ -742,11 +811,13 @@
                     </div>
                     <div class="info-item">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 5h16v14H4z" stroke="var(--gold-2)" stroke-width="1.3" />
-                            <path d="M4 7l8 6 8-6" stroke="var(--gold-2)" stroke-width="1.3" />
+                            <rect x="7" y="2.5" width="10" height="19" rx="2.5" stroke="var(--gold-2)"
+                                stroke-width="1.3" />
+                            <path d="M10.5 5.5h3" stroke="var(--gold-2)" stroke-width="1.3" stroke-linecap="round" />
+                            <path d="M11 18.4h2" stroke="var(--gold-2)" stroke-width="1.3" stroke-linecap="round" />
                         </svg>
                         <h4>Como agendar</h4>
-                        <p>Pelo Instagram ou WhatsApp do studio.</p>
+                        <p>Pelo WhatsApp ou Instagram da Laryssa, no fim desta página.</p>
                     </div>
                 </div>
             </div>
@@ -755,23 +826,34 @@
     <footer id="contatos-footer">
         <div class="wrap">
             <h2 class="gold-text">Vamos cuidar de você</h2>
-            <p class="lead">Fale com a gente para agendar seu horário ou tirar dúvidas sobre nossos serviços.</p>
-            <div class="social-row">
-                <a href="https://wa.me/5541998463446" target="_blank" rel="noopener" aria-label="WhatsApp">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 12a8 8 0 10-14.8 4.2L4 21l4.9-1.3A8 8 0 0020 12z" stroke="var(--gold-2)"
-                            stroke-width="1.3" />
-                        <path d="M9 9.5c0 3.5 2.5 6 6 6" stroke="var(--gold-2)" stroke-width="1.3"
-                            stroke-linecap="round" />
-                    </svg>
-                </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="4" y="4" width="16" height="16" rx="5" stroke="var(--gold-2)" stroke-width="1.3" />
-                        <circle cx="12" cy="12" r="3.5" stroke="var(--gold-2)" stroke-width="1.3" />
-                        <circle cx="16.5" cy="7.5" r="0.8" fill="var(--gold-2)" />
-                    </svg>
-                </a>
+            <p class="lead">Fale direto com a profissional que faz esse atendimento.</p>
+            <div class="pro-card">
+                <div class="pro-photo">
+                    <img src="/images/laryssa.jpeg" alt="Laryssa">
+                    <span>L</span>
+                </div>
+                <h3 class="gold-text">Laryssa</h3>
+                <p class="lead">Estética e Nail Design (Unhas)</p>
+                <div class="social-row pro-social">
+                    <a href="https://wa.me/5541998463446" target="_blank" rel="noopener"
+                        aria-label="WhatsApp de Laryssa">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12a8 8 0 10-14.8 4.2L4 21l4.9-1.3A8 8 0 0020 12z" stroke="var(--gold-2)"
+                                stroke-width="1.3" />
+                            <path d="M9 9.5c0 3.5 2.5 6 6 6" stroke="var(--gold-2)" stroke-width="1.3"
+                                stroke-linecap="round" />
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com/_laryssa_rodriguess" target="_blank" rel="noopener"
+                        aria-label="Instagram de Laryssa">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="4" width="16" height="16" rx="5" stroke="var(--gold-2)"
+                                stroke-width="1.3" />
+                            <circle cx="12" cy="12" r="3.5" stroke="var(--gold-2)" stroke-width="1.3" />
+                            <circle cx="16.5" cy="7.5" r="0.8" fill="var(--gold-2)" />
+                        </svg>
+                    </a>
+                </div>
             </div>
             <div class="foot-rule"></div>
             <p class="foot-fine">© <span class="year"></span> Studio Laryssa Rodrigues — Bem-estar e Cuidado</p>
@@ -779,6 +861,10 @@
     </footer>
 
     <script>
+        document.querySelectorAll('.pro-photo img').forEach(img => {
+            if (img.complete && img.naturalWidth === 0) img.remove();
+            else img.addEventListener('error', () => img.remove());
+        });
         document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
         document.querySelectorAll('.navlinks a').forEach(a => {
             a.addEventListener('click', () => document.getElementById('navlinks').classList.remove('open'));
