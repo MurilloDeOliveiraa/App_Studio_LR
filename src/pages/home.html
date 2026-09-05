@@ -363,6 +363,79 @@ display: block;
             background: var(--gold-2);
         }
 
+        /* ---- VIDEO DO CAMINHO ---- */
+        button.btn {
+            font-family: inherit;
+            font-weight: 300;
+            background: none;
+            cursor: pointer;
+        }
+
+        .btn-video {
+            margin-top: 26px;
+        }
+
+        .btn-video svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .video-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(32, 26, 21, 0.86);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .video-modal.open {
+            display: flex;
+        }
+
+        .video-box {
+            position: relative;
+            height: min(84vh, 760px);
+            aspect-ratio: 9 / 16;
+            max-width: 92vw;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            overflow: hidden;
+            background: #1b1611;
+        }
+
+        .video-box iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background: rgba(32, 26, 21, 0.75);
+            color: var(--cream);
+            font-family: inherit;
+            font-size: 0.95rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: border-color .25s ease, background .25s ease;
+        }
+
+        .video-close:hover {
+            border-color: var(--gold-2);
+            background: rgba(32, 26, 21, 0.95);
+        }
+
         /* ---- LOCATION ---- */
         .loc-grid {
             display: grid;
@@ -718,12 +791,20 @@ display: block;
                                 <span>Agende pelo Instagram ou WhatsApp das profissionais</span>
                             </li>
                         </ul>
+                        <button class="btn btn-outline btn-video" id="abrir-video" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9.2" stroke="currentColor" stroke-width="1.3" />
+                                <path d="M10.2 8.6l6 3.4-6 3.4z" stroke="currentColor" stroke-width="1.3"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            Ver vídeo da localização
+                        </button>
                     </div>
                     <div class="map-frame">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.9031660658547!2d-49.27633602550747!3d-25.441500733345173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce59a483614f1%3A0x1ec0a9a060b15d39!2sStudio%20Laryssa%20Rodrigues!5e0!3m2!1spt-BR!2sbr!4v1788112457086!5m2!1spt-BR!2sbr"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.9031660658547!2d-49.27633602550747!3d-25.441500733345173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce59a483614f1%3A0x1ec0a9a060b15d39!2sStudio%20Laryssa%20Rodrigues!5e0!3m2!1spt-BR!2sbr!4v1788112457086!5m2!1spt-BR!2sbr"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     </div>
                 </div>
             </div>
@@ -826,7 +907,44 @@ display: block;
         </footer>
     </main>
 
+    <div class="video-modal" id="video-modal" role="dialog" aria-modal="true"
+        aria-label="Vídeo mostrando o caminho até o studio">
+        <div class="video-box">
+            <button class="video-close" id="fechar-video" type="button" aria-label="Fechar vídeo">✕</button>
+            <iframe id="video-caminho" data-src="https://drive.google.com/file/d/1I_mdMGDeMmYSYbJ6X571RS187AvDg-ab/preview"
+                title="Vídeo do caminho até o studio" allow="autoplay" allowfullscreen></iframe>
+        </div>
+    </div>
+
     <script>
+        const janelaVideo = document.getElementById('video-modal');
+        const video = document.getElementById('video-caminho');
+        const abrirVideo = document.getElementById('abrir-video');
+        const fecharVideoBtn = document.getElementById('fechar-video');
+
+        function mostrarVideo() {
+            janelaVideo.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            if (!video.getAttribute('src')) video.src = video.dataset.src;
+            fecharVideoBtn.focus();
+        }
+
+        function esconderVideo() {
+            janelaVideo.classList.remove('open');
+            document.body.style.overflow = '';
+            video.removeAttribute('src');
+            abrirVideo.focus();
+        }
+
+        abrirVideo.addEventListener('click', mostrarVideo);
+        fecharVideoBtn.addEventListener('click', esconderVideo);
+        janelaVideo.addEventListener('click', e => {
+            if (e.target === janelaVideo) esconderVideo();
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && janelaVideo.classList.contains('open')) esconderVideo();
+        });
+
         document.querySelectorAll('.pro-photo img').forEach(img => {
             if (img.complete && img.naturalWidth === 0) img.remove();
             else img.addEventListener('error', () => img.remove());
