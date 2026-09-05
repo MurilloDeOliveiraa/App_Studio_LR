@@ -543,7 +543,7 @@
                     <div id="formState">
                         <div class="booking-head">
                             <h1 class="gold-text">Vamos marcar seu horário</h1>
-                            <p>Selecione o serviço desejado e informe seu nome e celular. Após isso, você será redirecionada para o WhatsApp da profissional para confirmar o seu horário.</p>
+                            <p>Selecione o serviço desejado e informe seu nome e celular. Após isso, você será redirecionada para o WhatsApp da profissional para marcar o seu horário.</p>
                         </div>
 
                         <div class="booking-card">
@@ -671,17 +671,34 @@
             opcao.addEventListener('change', () => categoriaField.classList.remove('invalid'));
         });
 
-        // Máscara simples de celular BR
+        // Nome: descarta números e símbolos, mantendo o que aparece em nomes de verdade
+        // (letras com acento, espaço, hífen e apóstrofo)
+        nomeInput.addEventListener('input', () => {
+            const limpo = nomeInput.value.replace(/[^\p{L}\s'’-]/gu, '');
+            if (limpo === nomeInput.value) return;
+            // mantém o cursor onde estava, senão ele pula para o fim a cada tecla recusada
+            const cursor = nomeInput.selectionStart - (nomeInput.value.length - limpo.length);
+            nomeInput.value = limpo;
+            nomeInput.setSelectionRange(cursor, cursor);
+        });
+
+        // Máscara de celular BR: cada separador só entra quando já existe dígito depois dele.
+        // Antes o traço era recolocado na hora, então não dava para apagá-lo.
+        function formatarCelular(valor) {
+            let d = valor.replace(/\D/g, '');
+            // número colado com o código do Brasil na frente: descarta o 55.
+            // Só acima de 11 dígitos, para não estragar quem é do DDD 55.
+            if (d.length > 11 && d.startsWith('55')) d = d.slice(2);
+            d = d.slice(0, 11);
+            let v = '';
+            if (d.length > 0) v = '(' + d.slice(0, 2);
+            if (d.length > 2) v += ') ' + d.slice(2, 7);
+            if (d.length > 7) v += '-' + d.slice(7);
+            return v;
+        }
+
         celularInput.addEventListener('input', () => {
-            let v = celularInput.value.replace(/\D/g, '').slice(0, 11);
-            if (v.length > 6) {
-                v = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
-            } else if (v.length > 2) {
-                v = v.replace(/(\d{2})(\d{0,5})/, '($1) $2');
-            } else if (v.length > 0) {
-                v = v.replace(/(\d{0,2})/, '($1');
-            }
-            celularInput.value = v.trim();
+            celularInput.value = formatarCelular(celularInput.value);
         });
 
         form.addEventListener('submit', async (e) => {
