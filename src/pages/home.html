@@ -307,6 +307,7 @@
             border: 1px solid var(--line);
             border-radius: 18px;
             padding: 34px 26px;
+display: block;
             text-align: center;
             transition: transform .3s ease, background .3s ease, border-color .3s ease;
         }
@@ -476,6 +477,84 @@
             height: 20px;
         }
 
+        /* ---- PROFISSIONAIS ---- */
+        .pro-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 720px;
+            margin: 0 auto 44px;
+        }
+
+        @media (max-width: 700px) {
+            .pro-grid {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+        }
+
+        .pro-card {
+            background: rgba(0, 0, 0, 0.18);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 26px 18px;
+            transition: transform .3s ease, background .3s ease, border-color .3s ease;
+        }
+
+        .pro-card:hover {
+            transform: translateY(-4px);
+            background: rgba(0, 0, 0, 0.24);
+            border-color: var(--gold-2);
+        }
+
+        .pro-photo {
+            position: relative;
+            width: 92px;
+            height: 92px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background: rgba(246, 239, 223, 0.08);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pro-photo img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pro-photo span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.1rem;
+            color: var(--gold-1);
+        }
+
+        .pro-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+        }
+
+        .pro-social {
+            margin-bottom: 0;
+            gap: 14px;
+        }
+
+        .pro-social a {
+            width: 40px;
+            height: 40px;
+        }
+
+        .pro-social svg {
+            width: 17px;
+            height: 17px;
+        }
+
         .foot-fine {
             font-size: 0.75rem;
             opacity: 0.55;
@@ -553,21 +632,20 @@
                 </div>
 
                 <div class="services-grid">
-                    <div class="service-card" id="estetica">
+                    <a class="service-card" id="estetica" href="/estetica">
                         <div class="service-icon">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="24" cy="24" r="22" stroke="var(--gold-2)" stroke-width="1.2" />
-                                <path d="M24 14c-6 0-10 5-10 11 0 5 4 9 10 9s10-4 10-9c0-6-4-11-10-11z"
-                                    stroke="var(--gold-2)" stroke-width="1.2" />
-                                <path d="M18 22c1.5-2 4.5-2 6 0M24 22c1.5-2 4.5-2 6 0" stroke="var(--gold-2)"
-                                    stroke-width="1.2" stroke-linecap="round" />
+                                <path d="M21 39c-1.5-15 5-25 17-28 2.5 15-4.5 26-17 28z" stroke="var(--gold-2)" stroke-width="1.2"
+                                    stroke-linejoin="round" />
+                                <path d="M21 39c0-9 4.5-17 11-22" stroke="var(--gold-2)" stroke-width="1.2" stroke-linecap="round" />
+                                <path d="M21 39c-3.5-2-6-4.5-7.5-8" stroke="var(--gold-2)" stroke-width="1.2" stroke-linecap="round" />
                             </svg>
                         </div>
                         <h3 class="gold-text">Estética</h3>
-                        <p>Drenagem linfática, pós-operatório, massagem relaxante, ventosaterapia e limpeza de pele, em sessões avulsas ou em pacote.</p>
-                    </div>
+                        <p>Drenagem linfática, pós-operatório, massagem relaxante, limpeza de pele e ventosa terapia, em sessões avulsas ou em pacote.</p>
+                    </a>
 
-                    <div class="service-card" id="nail-design">
+                    <a class="service-card" id="nail-design" href="/nail-design">
                         <div class="service-icon">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16 30c0-9 3-18 8-18s8 9 8 18c0 4-3.5 7-8 7s-8-3-8-7z" stroke="var(--gold-2)"
@@ -577,9 +655,9 @@
                         </div>
                         <h3 class="gold-text">Nail Design</h3>
                         <p>Esmaltação em gel nas mãos e nos pés, alongamento em molde ou fibra de vidro, banho de gel e manutenção.</p>
-                    </div>
+                    </a>
 
-                    <div class="service-card" id="lash-design">
+                    <a class="service-card" id="lash-design" href="/lash-design">
                         <div class="service-icon">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 26c6-10 26-10 32 0" stroke="var(--gold-2)" stroke-width="1.2"
@@ -590,20 +668,18 @@
                         </div>
                         <h3 class="gold-text">Lash Design</h3>
                         <p>Volumes brasileiro, egípcio, americano e inglês, além de lash lift e manutenção, para um olhar marcante e natural.</p>
-                    </div>
+                    </a>
 
-                    <div class="service-card" id="sobrancelhas">
+                    <a class="service-card" id="sobrancelhas" href="/sobrancelhas">
                         <div class="service-icon">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 22c4-6 12-8 16-4" stroke="var(--gold-2)" stroke-width="1.4"
-                                    stroke-linecap="round" />
-                                <path d="M24 22c4-6 12-8 16-4" stroke="var(--gold-2)" stroke-width="1.4"
-                                    stroke-linecap="round" />
+                                <path d="M8 30c6-11 20-15 31-10-11 0-19 3-25 12-1.6 2.4-5.2 1-6-2z" stroke="var(--gold-2)"
+                                    stroke-width="1.2" stroke-linejoin="round" />
                             </svg>
                         </div>
                         <h3 class="gold-text">Sobrancelhas</h3>
                         <p>Design personalizado, com ou sem henna, para uma sobrancelha alinhada ao seu rosto. Também fazemos buço.</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -633,10 +709,12 @@
                             </li>
                             <li>
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 5h16v14H4z" stroke="var(--gold-1)" stroke-width="1.3" />
-                                    <path d="M4 7l8 6 8-6" stroke="var(--gold-1)" stroke-width="1.3" />
+                                    <rect x="7" y="2.5" width="10" height="19" rx="2.5" stroke="var(--gold-1)"
+                                        stroke-width="1.3" />
+                                    <path d="M10.5 5.5h3" stroke="var(--gold-1)" stroke-width="1.3" stroke-linecap="round" />
+                                    <path d="M11 18.4h2" stroke="var(--gold-1)" stroke-width="1.3" stroke-linecap="round" />
                                 </svg>
-                                <span>Agende pelo Instagram ou WhatsApp</span>
+                                <span>Agende pelo Instagram ou WhatsApp das profissionais</span>
                             </li>
                         </ul>
                     </div>
@@ -654,24 +732,92 @@
         <footer id="contatos">
             <div class="wrap">
                 <h2 class="gold-text">Contatos</h2>
-                <p class="lead">Fale com a gente para agendar seu horário ou tirar dúvidas sobre nossos serviços.</p>
-                <div class="social-row">
-                    <a href="https://wa.me/5541998463446" target="_blank" rel="noopener" aria-label="WhatsApp">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 12a8 8 0 10-14.8 4.2L4 21l4.9-1.3A8 8 0 0020 12z" stroke="var(--gold-2)"
-                                stroke-width="1.3" />
-                            <path d="M9 9.5c0 3.5 2.5 6 6 6" stroke="var(--gold-2)" stroke-width="1.3"
-                                stroke-linecap="round" />
-                        </svg>
-                    </a>
-                    <a href="https://instagram.com/_laryssa_rodriguess" target="_blank" rel="noopener"
-                        aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="4" y="4" width="16" height="16" rx="5" stroke="var(--gold-2)" stroke-width="1.3" />
-                            <circle cx="12" cy="12" r="3.5" stroke="var(--gold-2)" stroke-width="1.3" />
-                            <circle cx="16.5" cy="7.5" r="0.8" fill="var(--gold-2)" />
-                        </svg>
-                    </a>
+                <p class="lead">Tire dúvidas e agende seu horário direto com a profissional do seu atendimento!</p>
+                <div class="pro-grid">
+                    <div class="pro-card">
+                        <div class="pro-photo">
+                            <img src="/images/laryssa.jpeg" alt="Laryssa">
+                            <span>L</span>
+                        </div>
+                        <h3 class="gold-text">Laryssa</h3>
+                        <p class="lead">Estética e Nail Design (Unhas)</p>
+                        <div class="social-row pro-social">
+                            <a href="https://wa.me/5541998463446" target="_blank" rel="noopener"
+                                aria-label="WhatsApp de Laryssa">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 12a8 8 0 10-14.8 4.2L4 21l4.9-1.3A8 8 0 0020 12z" stroke="var(--gold-2)"
+                                    stroke-width="1.3" />
+                                <path d="M9 9.5c0 3.5 2.5 6 6 6" stroke="var(--gold-2)" stroke-width="1.3"
+                                    stroke-linecap="round" />
+                            </svg>
+                            </a>
+                            <a href="https://instagram.com/_laryssa_rodriguess" target="_blank" rel="noopener"
+                                aria-label="Instagram de Laryssa">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="4" width="16" height="16" rx="5" stroke="var(--gold-2)"
+                                    stroke-width="1.3" />
+                                <circle cx="12" cy="12" r="3.5" stroke="var(--gold-2)" stroke-width="1.3" />
+                                <circle cx="16.5" cy="7.5" r="0.8" fill="var(--gold-2)" />
+                            </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pro-card">
+                        <div class="pro-photo">
+                            <img src="/images/polyana.jpeg" alt="Polyana">
+                            <span>P</span>
+                        </div>
+                        <h3 class="gold-text">Polyana</h3>
+                        <p class="lead">Lash Design (Cílios)</p>
+                        <div class="social-row pro-social">
+                            <a href="https://wa.me/5541996508375" target="_blank" rel="noopener"
+                                aria-label="WhatsApp de Polyana">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 12a8 8 0 10-14.8 4.2L4 21l4.9-1.3A8 8 0 0020 12z" stroke="var(--gold-2)"
+                                    stroke-width="1.3" />
+                                <path d="M9 9.5c0 3.5 2.5 6 6 6" stroke="var(--gold-2)" stroke-width="1.3"
+                                    stroke-linecap="round" />
+                            </svg>
+                            </a>
+                            <a href="https://instagram.com/polygiacomassi" target="_blank" rel="noopener"
+                                aria-label="Instagram de Polyana">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="4" width="16" height="16" rx="5" stroke="var(--gold-2)"
+                                    stroke-width="1.3" />
+                                <circle cx="12" cy="12" r="3.5" stroke="var(--gold-2)" stroke-width="1.3" />
+                                <circle cx="16.5" cy="7.5" r="0.8" fill="var(--gold-2)" />
+                            </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pro-card">
+                        <div class="pro-photo">
+                            <img src="/images/valentina.jpeg" alt="Valentina">
+                            <span>V</span>
+                        </div>
+                        <h3 class="gold-text">Valentina</h3>
+                        <p class="lead">Sobrancelhas e Buço</p>
+                        <div class="social-row pro-social">
+                            <a href="https://wa.me/5561998301910" target="_blank" rel="noopener"
+                                aria-label="WhatsApp de Valentina">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 12a8 8 0 10-14.8 4.2L4 21l4.9-1.3A8 8 0 0020 12z" stroke="var(--gold-2)"
+                                    stroke-width="1.3" />
+                                <path d="M9 9.5c0 3.5 2.5 6 6 6" stroke="var(--gold-2)" stroke-width="1.3"
+                                    stroke-linecap="round" />
+                            </svg>
+                            </a>
+                            <a href="https://instagram.com/valentinadegodoy" target="_blank" rel="noopener"
+                                aria-label="Instagram de Valentina">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="4" width="16" height="16" rx="5" stroke="var(--gold-2)"
+                                    stroke-width="1.3" />
+                                <circle cx="12" cy="12" r="3.5" stroke="var(--gold-2)" stroke-width="1.3" />
+                                <circle cx="16.5" cy="7.5" r="0.8" fill="var(--gold-2)" />
+                            </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="foot-rule"></div>
                 <p class="foot-fine">© <span id="year"></span> Studio Laryssa Rodrigues — Bem-estar e Cuidado</p>
@@ -680,6 +826,10 @@
     </main>
 
     <script>
+        document.querySelectorAll('.pro-photo img').forEach(img => {
+            if (img.complete && img.naturalWidth === 0) img.remove();
+            else img.addEventListener('error', () => img.remove());
+        });
         document.getElementById('year').textContent = new Date().getFullYear();
         document.querySelectorAll('.navlinks a').forEach(a => {
             a.addEventListener('click', () => document.getElementById('navlinks').classList.remove('open'));

@@ -63,7 +63,10 @@ export default {
 		}
 
 		if (url.pathname.startsWith("/assets/")) {
-			return env.ASSETS.fetch(request);
+			// o binding serve a partir da raiz de ./src/assets, entao o prefixo sai daqui
+			const destino = new URL(request.url);
+			destino.pathname = url.pathname.slice("/assets".length);
+			return env.ASSETS.fetch(new Request(destino, request));
 		}
 
 		if (url.pathname === "/") {

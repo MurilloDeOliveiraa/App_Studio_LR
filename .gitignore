@@ -165,3 +165,6 @@ dist
 .env*
 !.env.example
 .wrangler/
+
+# fotos das profissionais (dados pessoais, ficam so na maquina)
+src/assets/images/
